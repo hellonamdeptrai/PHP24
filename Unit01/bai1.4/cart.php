@@ -1,31 +1,35 @@
 <?php 
 	session_start();
-	//session_destroy();
+	// session_destroy();
 	$products = $_SESSION['cart'];
+	
  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Cửa hàng tạp hóa</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <body>
 	<div class="container">
-		<h2 class="text-center">--CART--</h2>
+		<h1 class="text-center font-weight-bold">Giỏ hàng</h1>
 		<div class="container">
-			<a href="index.php" class="btn btn-success">Home >>></a>
+			<a href="index.php" class="btn btn-success">Trang chủ</a>
 			<table class="table">
 				<thead>
 					<tr>
-						<th>Code</th>
-						<th>Name</th>
-						<th>Price</th>
-						<th>Quality</th>
-						<th>Amount</th>
+						<th>Mã SP</th>
+						<th>Tên sản phẩm</th>
+						<th>Số tiền</th>
+						<th>Số lượng</th>
+						<th>Thời gian cập nhật</th>
+						<th class="text-right">Tổng tiền</th>
+						<th class="text-right">Hành động</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -43,12 +47,16 @@
 							<?= $product['SoLuong'] ?>
 							<a href="delete.php?MaSp=<?= $product['MaSp'] ?>" class="btn btn-warning">-</a>
 						</td>
-						<td align="right"><?= number_format($product['GiaTien']*$product['SoLuong']) ?></td>
+						<td>
+							<?= $product['time'] ?>
+						</td>
+						<td align="right"><?= number_format($product['GiaTien']*$product['SoLuong']) ?>đ</td>
+						<th class="text-right"><a href="delete2.php?MaSp=<?= $product['MaSp'] ?>" class="btn btn-outline-warning">Xóa khỏi giỏ hàng</a></th>
 					</tr>
 				<?php } ?>
 				<thead>
-					<tr>
-						<td colspan="4">Sum Amount</td>
+					<tr class="font-weight-bold">
+						<td colspan="4">Tổng thanh toán</td>
 						<td align="right"><?= number_format($sum_amount) ?></td>
 					</tr>
 				</thead>

@@ -1,5 +1,16 @@
 <?php 
+  
   session_start();
+  
+  if(isset($_SESSION['info'])){
+    $list = $_SESSION['info'];
+  }else{
+    $list = NULL;
+  }
+  // echo "<pre>";
+  // var_dump($list);
+  // echo "</pre>";
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,15 +44,17 @@
         </tr>
       </thead>
       <tbody>
+        <?php foreach($list as $value){?>
         <tr>
-          <th scope="row"><?= $_SESSION['id'] ?></th>
-          <td><?= $_SESSION['name'] ?></td>
-          <td><?= $_SESSION['email'] ?></td>
+          <th scope="row"><?= $value['id'] ?></th>
+          <td><?= $value['name'] ?></td>
+          <td><?= $value['email'] ?></td>
           <td>
-            <a href="detail.php?id=<?= $sv['id'] ?>" type="button" class="btn btn-info">Detail</a>
-            <a href="delete.php?id=<?= $sv['id'] ?>" type="button" class="btn btn-warning">Delete</a>
+            <a href="detail.php?id=<?= $value['id'] ?>" type="button" class="btn btn-info">Detail</a>
+            <a href="delete.php?id=<?= $value['id'] ?>" type="button" class="btn btn-warning">Delete</a>
           </td>
         </tr>
+      <?php }?>
       </tbody>
     </table>
     </div>

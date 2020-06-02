@@ -22,7 +22,7 @@
         <form id="xoa" action="add_process.php" method="POST" role="form" enctype="multipart/form-data">
             <div class="form-group">
                 <label class="font-weight-bolder" for="">Mã sinh viên</label>
-                <input type="number" class="form-control" id="" placeholder="Nhập mã sinh viên" name="id">
+                <input type="text" class="form-control" id="" placeholder="Nhập mã sinh viên" name="id">
             </div>
             <div class="form-group">
                 <label class="font-weight-bolder" for="">Họ và tên</label>

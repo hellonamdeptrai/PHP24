@@ -17,7 +17,6 @@
 		// B3: Add vào giỏ hàng
 		$_SESSION['cart'][$maSP]  = $product;	
 	}
-
 	
 
 	header("Location: cart.php");

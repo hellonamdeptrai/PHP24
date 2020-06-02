@@ -1,13 +1,7 @@
 <?php 
-	require_once('connection.php');
-
-	$id = $_GET['id'];
-	//category
-	//Câu lệnh truy vấn
-	$query_sinhvien = "SELECT * FROM sinhvien where id = ".$id;
-
-	//Thực thi câu lệnh
-	$sinhvien = $conn->query($query_sinhvien)->fetch_assoc();
+	session_start();
+    $id = $_GET['id'];
+    $list = $_SESSION['info'][$id];
 
 ?>
 <!DOCTYPE html>
@@ -26,12 +20,12 @@
     <h3 class="font-weight-bolder" align="center">Zent - Education And Technology Group</h3>
     <h3 align="center">Xem sinh viên</h3>
     <hr>
-    <h2><span class="font-weight-bolder" >Mã sinh viên:</span> <?= $sinhvien['id'] ?></h2>
-    <h2><span class="font-weight-bolder" >Họ và tên:</span> <?= $sinhvien['name'] ?></h2>
-    <h2><span class="font-weight-bolder" >Số điện thoại:</span> <?= $sinhvien['phone_number'] ?></h2>
-    <h2><span class="font-weight-bolder" >Email:</span> <?= $sinhvien['email'] ?></h2>
-    <h2><span class="font-weight-bolder" >Giới tính:</span> <?= $sinhvien['gioi_tinh'] ?></h2>
-    <h2><span class="font-weight-bolder" >Địa chỉ:</span> <?= $sinhvien['dia_chi'] ?></h2>
+    <h2><span class="font-weight-bolder" >Mã sinh viên:</span> <?= $list['id'] ?></h2>
+    <h2><span class="font-weight-bolder" >Họ và tên:</span> <?= $list['name'] ?></h2>
+    <h2><span class="font-weight-bolder" >Số điện thoại:</span> <?= $list['sdt'] ?></h2>
+    <h2><span class="font-weight-bolder" >Email:</span> <?= $list['email'] ?></h2>
+    <h2><span class="font-weight-bolder" >Giới tính:</span> <?= $list['gioitinh'] ?></h2>
+    <h2><span class="font-weight-bolder" >Địa chỉ:</span> <?= $list['diachi'] ?></h2>
     </div>
 </body>
 </html>

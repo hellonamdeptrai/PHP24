@@ -1,18 +1,11 @@
 <?php 
-	require_once('connection.php');
-
-	$id = $_GET['id'];
+	session_start();
 	
-	$query = "DELETE FROM sinhvien WHERE id =".$id;
+	$id = $_GET['id'];
 
-	$sv = $conn->query($query);
+	unset($_SESSION['info'][$id]);
 
-	if ($sv == true) {
-		setcookie('msg','Xóa thành công',time()+5);
-	} else {
-		setcookie('msg','Xóa không thành công',time()+5);
-	}
-	header('Location: list.php');
+	header("Location: list.php");
 	
 
 ?>
