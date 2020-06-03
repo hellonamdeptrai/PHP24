@@ -3,6 +3,10 @@
 	// session_destroy();
 	$products = $_SESSION['cart'];
 	
+    
+  // 	 echo "<pre>";
+  // var_dump($tg);
+  // echo "</pre>";
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,8 +60,8 @@
 				<?php } ?>
 				<thead>
 					<tr class="font-weight-bold">
-						<td colspan="4">Tổng thanh toán</td>
-						<td align="right"><?= number_format($sum_amount) ?></td>
+						<td colspan="5">Tổng thanh toán</td>
+						<td align="right"><?= number_format($sum_amount) ?>đ</td>
 					</tr>
 				</thead>
 				</tbody>
