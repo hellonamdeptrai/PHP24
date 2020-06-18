@@ -15,22 +15,23 @@
     <h3 align="center">Zent - Education And Technology Group</h3>
     <h3 align="center">Add Authors</h3>
     <hr>
-        <form action="?mod=author&act=store" method="POST" role="form" enctype="multipart/form-data">
+        <form action="?mod=author&act=update" method="POST" role="form" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?= $auth['id'] ?>">
             <div class="form-group">
                 <label for="">Name</label>
-                <input type="text" class="form-control" id="" placeholder="" name="name">
+                <input type="text" class="form-control" id="" placeholder="" name="name" value="<?= $auth['name'] ?>">
             </div>
             <div class="form-group">
                 <label for="">Email</label>
-                <input type="email" class="form-control" id="" placeholder="" name="email">
+                <input type="email" class="form-control" id="" placeholder="" name="email" value="<?= $auth['email'] ?>">
             </div>
             <div class="form-group">
                 <label for="">Password</label>
-                <input type="password" class="form-control" id="" placeholder="" name="password">
+                <input type="password" class="form-control" id="" placeholder="*****" name="password">
             </div>
             <div class="form-group">
                 <label for="">Trạng thái hoạt động</label>
-                <input type="checkbox" id="" placeholder="" value="1" name="status"> <em>(Check để hoạt động tài khoản)</em>
+                <input <?= ($auth['status'] == 1)?'checked':'' ?> type="checkbox" id="" placeholder="" value="1" name="status"> <em>(Check để hoạt động tài khoản)</em>
             </div>
             <button type="submit" class="btn btn-primary">Create</button>
         </form>

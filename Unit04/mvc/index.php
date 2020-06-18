@@ -19,6 +19,15 @@
 				case 'store':
 					$controller_obj->store();
 					break;
+				case 'edit':
+					$controller_obj->edit();
+					break;
+				case 'update':
+					$controller_obj->update();
+					break;
+				case 'delete':
+					$controller_obj->delete();
+					break;
 				default:
 					echo "Không tồn tại action này";
 					break;
@@ -34,12 +43,21 @@
 				case 'detail':
 					$controller_obj->detail();
 					break;
-				// case 'add':
-				// 	$controller_obj->add();
-				// 	break;
-				// case 'store':
-				// 	$controller_obj->store();
-				// 	break;
+				case 'add':
+					$controller_obj->add();
+					break;
+				case 'store':
+					$controller_obj->store();
+					break;
+				case 'edit':
+					$controller_obj->edit();
+					break;
+				case 'update':
+					$controller_obj->update();
+					break;
+				case 'delete':
+					$controller_obj->delete();
+					break;
 				default:
 					echo "Không tồn tại action này";
 					break;

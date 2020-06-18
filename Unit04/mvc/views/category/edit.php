@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Zent Education</title>
+    <title>Zent - Education And Technology Group</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -12,18 +12,21 @@
 </head>
 <body>
     <div class="container">
-        <h2 align="center">Author Detail</h2>
-        <h4><span class="font-weight-bold">ID: </span><?= $auth['id'] ?></h4>
-        <h4><span class="font-weight-bold">Name: </span><?= $auth['name'] ?></h4>
-        <h4><span class="font-weight-bold">Email: </span><?= $auth['email'] ?></h4>
-        <h4><span class="font-weight-bold">Status: </span> 
-            <?php if ($auth['status'] == 1) {
-                echo "Hoạt động";
-            } else {
-                echo "Ngừng hoạt động";
-            }
-         ?> 
-        </h4>
+    <h3 align="center">Zent - Education And Technology Group</h3>
+    <h3 align="center">Update Category</h3>
+    <hr>
+        <form action="?mod=category&act=update" method="POST" role="form" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?= $cate['id'] ?>">
+            <div class="form-group">
+                <label for="">Name</label>
+                <input type="text" class="form-control" id="" placeholder="" name="title" value="<?= $cate['title'] ?>">
+            </div>
+            <div class="form-group">
+                <label for="">Description</label>
+                <input type="text" class="form-control" id="" placeholder="" name="description" value="<?= $cate['description'] ?>">
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
     </div>
 </body>
 </html>

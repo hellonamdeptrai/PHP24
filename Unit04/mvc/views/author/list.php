@@ -31,8 +31,8 @@
                     <td><?= $row['email'] ?></td>
                     <td>
                         <a href="?mod=author&act=detail&id=<?= $row['id'] ?>" class="btn btn-success">Detail</a> 
-                        <a href="" class="btn btn-warning">Update</a>  
-                        <a href="" class="btn btn-danger">Delete</a>
+                        <a href="?mod=author&act=edit&id=<?= $row['id'] ?>" class="btn btn-warning">Update</a>  
+                        <a href="?mod=author&act=delete&id=<?= $row['id'] ?>" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
             <?php } ?>

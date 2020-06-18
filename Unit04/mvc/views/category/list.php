@@ -29,8 +29,8 @@
                     <td><?= $row['description'] ?></td>
                     <td>
                         <a href="?mod=category&act=detail&id=<?= $row['id'] ?>" class="btn btn-success">Detail</a> 
-                        <a href="" class="btn btn-warning">Update</a>  
-                        <a href="" class="btn btn-danger">Delete</a>
+                        <a href="?mod=category&act=edit&id=<?= $row['id'] ?>" class="btn btn-warning">Update</a>  
+                        <a href="?mod=category&act=delete&id=<?= $row['id'] ?>" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
             <?php } ?>

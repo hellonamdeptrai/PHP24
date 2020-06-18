@@ -20,24 +20,61 @@
 			require_once('views/author/detail.php');
 		}
 
-		// public function add(){
-		// 	require_once('views/category/add.php');
-		// }
+		public function add(){
+			require_once('views/author/add.php');
+		}
 
-		// public function store(){
-		// 	$data = array();
+		public function store(){
+			$data = array();
 
-		// 	$data['title'] = $_POST['title'];
-		// 	$data['description'] = $_POST['description'];
+			$data['name'] = $_POST['name'];
+			$data['email'] = $_POST['email'];
+			$data['password'] = md5($_POST['password']);
+			$data['status'] = $_POST['status'];
 
-		// 	$status = $this->cate_model->create($data);
+			$status = $this->auth_model->create($data);
 
-		// 	if ($status == true) {
-		// 		header('Location: ?mod=category');
-		// 	} else {
-		// 		header('Location: ?mod=category&act=add');
-		// 	}
+			if ($status == true) {
+				header('Location: ?mod=author');
+			} else {
+				header('Location: ?mod=author&act=add');
+			}
 			
-		// }
+		}
+
+		public function edit(){
+			$id = (isset($_GET['id'])?$_GET['id']:0);
+
+			$auth = $this->auth_model->find($id);
+
+			require_once('views/author/edit.php');
+		}
+
+		public function update(){
+			$data = array();
+
+			$data['id'] = $_POST['id'];
+			$data['name'] = $_POST['name'];
+			$data['email'] = $_POST['email'];
+			$data['password'] = md5($_POST['password']);
+			$data['status'] = $_POST['status'];
+
+			$status = $this->auth_model->update($data);
+
+			if ($status == true) {
+				header('Location: ?mod=author');
+			} else {
+				header('Location: ?mod=author&act=edit&id='.$data['id']);
+			}
+			
+		}
+
+		public function delete(){
+			$id = (isset($_GET['id'])?$_GET['id']:0);
+			$cate = $this->auth_model->delete($id);
+			if ($cate == true) {
+				header('Location: ?mod=author');
+			}
+		}
 	}
  ?>
