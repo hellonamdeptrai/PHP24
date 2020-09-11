@@ -10,12 +10,8 @@
 		}
 
 		function All(){
-			if ($this->table == "posts") {
-				$p = " ORDER BY created_at DESC";
-			}
-
 		    // Cau lenh truy van co so du lieu
-		    $query = "SELECT * FROM ".$this->table."$p";
+		    $query = "SELECT * FROM ".$this->table;
 
 		    $data = array();
 

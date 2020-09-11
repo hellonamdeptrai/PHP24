@@ -20,5 +20,22 @@
 
 		    return $data;
 		}
+
+		function All1(){
+
+		    // Cau lenh truy van co so du lieu
+		    $query = "SELECT * FROM ".$this->table." ORDER BY created_at DESC";
+
+		    $data = array();
+
+		    // Thuc thi cau lenh truy van co so du lieu
+		    $result = $this->connection->query($query);
+
+		    while($row = $result->fetch_assoc()) { 
+		    	$data[] = $row;
+		    }
+
+		    return $data;
+		}
 	}
  ?>

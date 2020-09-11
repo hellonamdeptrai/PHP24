@@ -11,7 +11,7 @@
 			
 			$data = array();
 
-			$data = $this->post_model->All();
+			$data = $this->post_model->All1();
 			require_once('views/post/list.php');
 		}
 

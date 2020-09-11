@@ -100,6 +100,31 @@
 					</div>
 					<!-- /post -->
 					<?php } ?>
+					<div class="clearfix visible-md visible-lg"></div>
+
+					<?php
+						foreach ($data23 as $post) {
+					?>
+					<!-- post -->
+					<div class="col-md-4">
+						<div class="post">
+							<a class="post-img" href="?mod=blog&act=blogpost&id=<?= $post['id'] ?>"><img style="height: 220px;" src="public/img/<?= $post['thumbnail'] ?>" alt=""></a>
+							<div class="post-body">
+								<div class="post-meta">
+									<a class="post-category cat-<?php
+										if ($post['category_id'] == 5){
+											$post['category_id'] = 1;
+										}
+										echo($post['category_id']);
+									?>" href="?mod=blog&act=category&id=<?= $post['category_id'] ?>&cate=<?= $post['category'] ?>"><?= $post['category'] ?></a>
+									<span class="post-date"><?= $post['created_at'] ?></span>
+								</div>
+								<h3 class="post-title"><a href="?mod=blog&act=blogpost&id=<?= $post['id'] ?>"><?= $post['title'] ?></a></h3>
+							</div>
+						</div>
+					</div>
+					<!-- /post -->
+					<?php } ?>
 
 				<!-- row -->
 				<div class="row">

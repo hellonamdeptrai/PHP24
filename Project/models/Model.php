@@ -149,7 +149,24 @@
 		function post2(){
 			// 6 Khối
 			//Câu lệnh truy vấn
-			$query = "SELECT p.*, c.title AS 'category' FROM posts p LEFT JOIN categories c ON p.category_id = c.id WHERE p.`status` = 1 ORDER BY p.created_at DESC LIMIT 2,6";
+			$query = "SELECT p.*, c.title AS 'category' FROM posts p LEFT JOIN categories c ON p.category_id = c.id WHERE p.`status` = 1 ORDER BY p.created_at DESC LIMIT 2,3";
+
+			$data = array();
+
+			 // Thuc thi cau lenh truy van co so du lieu
+		    $result = $this->connection->query($query);
+
+			while ($row = $result->fetch_assoc()) {
+				$data[] = $row;
+			}
+
+		    return $data;
+		}
+
+		function post23(){
+			// 6 Khối
+			//Câu lệnh truy vấn
+			$query = "SELECT p.*, c.title AS 'category' FROM posts p LEFT JOIN categories c ON p.category_id = c.id WHERE p.`status` = 1 ORDER BY p.created_at DESC LIMIT 5,3";
 
 			$data = array();
 

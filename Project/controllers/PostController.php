@@ -29,6 +29,7 @@
 			$data = $this->post_model->post();
 			//6 khối
 			$data2 = $this->post_model->post2();
+			$data23 = $this->post_model->post23();
 			//khối 1 to
 			$data3 = $this->post_model->post3();
 			//khối nhỏ dưới khối to
